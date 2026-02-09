@@ -3,13 +3,15 @@ package org.example.playwright.todomvc;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.junit.UsePlaywright;
 
-//import io.qameta.allure.Feature;
 import io.qameta.allure.Feature;
+import org.assertj.core.api.Assertions;
 import org.example.TodoMvcAppPage;
 import org.example.playwright.fixtures.ChromeHeadlessOptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 @DisplayName("Completing todo items to the list")
 @UsePlaywright(ChromeHeadlessOptions.class)
@@ -28,28 +30,31 @@ class CompletingTodoItemsTest {
     @DisplayName("Completed items should be marked as completed")
     @Test
     void completedItemsShouldBeMarkedAsCompleted() {
-        // TODO: Implement me
-        // 1) Add "Feed the cat", "Walk the dog", "Buy some milk"
-        // 2) Complete "Feed the cat"
-        // 3) Check that "Feed the cat" is shown as completed
+        todoMvcApp.addTodoItems("Feed the cat","Walk the dog","Buy some milk");
+
+        todoMvcApp.completeItem("Feed the cat");
+
+        assertThat(todoMvcApp.itemRow("Feed the cat")).hasClass("completed");
     }
 
     @DisplayName("Completing an item should update the number of items left count")
     @Test
     void shouldUpdateNumberOfItemsLeftCount() {
-        // TODO: Implement me
-        // 1) Add "Feed the cat", "Walk the dog", "Buy some milk"
-        // 2) Complete "Feed the cat"
-        // 3) Verify the todo count shows "2 items left!"
+        todoMvcApp.addTodoItems("Feed the cat","Walk the dog","Buy some milk");
+
+        todoMvcApp.completeItem("Feed the cat");
+
+        Assertions.assertThat(todoMvcApp.todoCount()).isEqualTo("2 items left!");
     }
 
     @DisplayName("Should be able to clear completed items")
     @Test
     void shouldBeAbleToClearCompletedItems() {
-        // TODO: Implement me
-        // 1) Add "Feed the cat", "Walk the dog", "Buy some milk"
-        // 2) Complete "Walk the dog"
-        // 3) Clear the completed items
-        // 4) Verify that the remaining items are "Feed the cat" and "Buy some milk"
+        todoMvcApp.addTodoItems("Feed the cat", "Walk the dog", "Buy some milk");
+
+        todoMvcApp.completeItem("Walk the dog");
+        todoMvcApp.clearCompleted();
+
+        Assertions.assertThat(todoMvcApp.todoItemsDisplayed()).containsExactly("Feed the cat", "Buy some milk");
     }
 }
