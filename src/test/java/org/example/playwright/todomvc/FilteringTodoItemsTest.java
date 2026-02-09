@@ -2,7 +2,7 @@ package org.example.playwright.todomvc;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.junit.UsePlaywright;
-//import io.qameta.allure.Feature;
+import io.qameta.allure.Feature;
 import org.example.TodoMvcAppPage;
 import org.example.playwright.fixtures.ChromeHeadlessOptions;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 @DisplayName("Filtering todo items")
 @UsePlaywright(ChromeHeadlessOptions.class)
-//@Feature("Filtering todo items")
+@Feature("Filtering todo items")
 class FilteringTodoItemsTest {
 
     TodoMvcAppPage todoMvcApp;

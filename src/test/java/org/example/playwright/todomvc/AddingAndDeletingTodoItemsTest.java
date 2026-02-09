@@ -3,8 +3,8 @@ package org.example.playwright.todomvc;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.junit.UsePlaywright;
 
-//import io.qameta.allure.Feature;
-//import io.qameta.allure.Story;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.example.TodoMvcAppPage;
 import org.example.playwright.fixtures.ChromeHeadlessOptions;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 @DisplayName("Adding and deleting todo items to the list")
-//@Feature("Adding and deleting todo items to the list")
+@Feature("Adding and deleting todo items to the list")
 @UsePlaywright(ChromeHeadlessOptions.class)
 class AddingAndDeletingTodoItemsTest {
 
@@ -25,7 +25,7 @@ class AddingAndDeletingTodoItemsTest {
         todoMvcApp.open();
     }
 
-//    @Story("When the application starts")
+    @Story("When the application starts")
     @DisplayName("When the application starts")
     @Nested
     class WhenTheApplicationStarts {
@@ -45,7 +45,7 @@ class AddingAndDeletingTodoItemsTest {
         }
     }
 
-//    @Story("When we want to add item to the list")
+    @Story("When we want to add item to the list")
     @DisplayName("When we want to add item to the list")
     @Nested
     class WhenAddingItems {
@@ -92,7 +92,7 @@ class AddingAndDeletingTodoItemsTest {
         }
     }
 
-//    @Story("When we want to delete item in the list")
+    @Story("When we want to delete item in the list")
     @DisplayName("When we want to delete item in the list")
     @Nested
     class WhenDeletingItems {

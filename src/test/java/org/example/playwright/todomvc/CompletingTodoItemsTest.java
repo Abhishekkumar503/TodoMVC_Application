@@ -4,6 +4,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.junit.UsePlaywright;
 
 //import io.qameta.allure.Feature;
+import io.qameta.allure.Feature;
 import org.example.TodoMvcAppPage;
 import org.example.playwright.fixtures.ChromeHeadlessOptions;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 @DisplayName("Completing todo items to the list")
 @UsePlaywright(ChromeHeadlessOptions.class)
-//@Feature("Completing todo items to the list")
+@Feature("Completing todo items to the list")
 class CompletingTodoItemsTest {
 
     TodoMvcAppPage todoMvcApp;
