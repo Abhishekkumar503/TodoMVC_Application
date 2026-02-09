@@ -3,7 +3,7 @@ version: '3.8'
 services:
   webapp:
     build:
-      context: ./react-todomvc
+      context: React-todo-UI/react-todomvc
     ports:
       - "7002:7002"
     networks:
@@ -18,14 +18,14 @@ services:
 
   tests:
     build:
-      context: ./todomvc-acceptance-tests
+      context: ./src
     depends_on:
       webapp:
         condition: service_healthy
     networks:
       - test-network
     volumes:
-      - ./todomvc-acceptance-tests/target:/tests/target
+      - ./target:/tests/target
     # Ensure the webapp service doesn't restart automatically
     environment:
       - APP_HOST_URL=http://webapp:7002

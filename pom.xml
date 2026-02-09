@@ -133,7 +133,7 @@
             </goals>
             <configuration>
               <name>react-app</name>
-              <workingDir>${project.basedir}/../react-todomvc</workingDir>
+              <workingDir>${project.basedir}/../React-todo_UI/react-todomvc</workingDir>
               <waitForInterrupt>false</waitForInterrupt>
               <healthcheckUrl>http://localhost:7002</healthcheckUrl>
               <arguments>
@@ -187,7 +187,7 @@
         <version>2.15.0</version>
         <configuration>
           <reportVersion>${allure.version}</reportVersion>
-          <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+          <resultsDirectory>${project.build.directory}/target/allure-results</resultsDirectory>
         </configuration>
         <executions>
           <execution>
